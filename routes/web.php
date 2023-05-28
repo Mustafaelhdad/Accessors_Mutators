@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users/{id}', [UserController::class, 'index']);
-Route::get('/create', [UserController::class, 'store']);
+// Route::get('/users/{id}', [UserController::class, 'index']);
+// Route::get('/create', [UserController::class, 'store']);
+
+Auth::routes();
+// Auth::routes(['register'=>false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

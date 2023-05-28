@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/users/{id}', [UserController::class, 'index']);
+Route::get('/create', [UserController::class, 'store']);
